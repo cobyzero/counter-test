@@ -1,0 +1,8 @@
+{
+  "name": "counterTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "3b3157d7"
+}
