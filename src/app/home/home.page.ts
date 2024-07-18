@@ -1,8 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
-
-import { DataService, Message } from '../services/data.service';
+import { CounterService } from '../services/counter.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +7,15 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private data = inject(DataService);
-  constructor() {}
+  count$ = this.counterService.count$;
 
-  refresh(ev: any) {
-    setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
+  constructor(private counterService: CounterService) {}
+
+  increment() {
+    this.counterService.increment();
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  decrement() {
+    this.counterService.decrement();
   }
 }
