@@ -8,9 +8,10 @@
 
 <ion-content class="ion-padding">
   <div class="ion-text-center">
-    <h1>Current {{ count$ | async }}</h1>
+    <h1>Currents {{ count$ | async }}</h1>
     <ion-button (click)="increment()">+</ion-button>
     <ion-button (click)="decrement()">-</ion-button>
+    <ion-button (click)="reset()">Reset</ion-button>
     
   </div>
 </ion-content>

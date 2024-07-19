@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { DecrementAction, IncrementAction, ResetAction } from './reducer/home.action';
+import { Decrement, Increment, Reset } from './reducer/home.action';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,18 +11,18 @@ export class HomePage {
   count$: Observable<number>;
 
   constructor(private store: Store<{ counter: number }>) {
-    this.count$ = store.pipe(select('counter'));
+    this.count$ = store.select('counter');
   }
 
   increment() {
-    this.store.dispatch(new IncrementAction());
+    this.store.dispatch(Increment());
   }
 
   decrement() {
-    this.store.dispatch(new DecrementAction());
+    this.store.dispatch(Decrement());
   }
 
   reset() {
-    this.store.dispatch(new ResetAction());
+    this.store.dispatch(Reset());
   }
 }

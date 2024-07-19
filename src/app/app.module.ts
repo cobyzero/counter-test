@@ -7,7 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { CounterFun } from './home/reducer/home.reducer';
+import { CounterReducer } from './home/reducer/home.reducer';
+import { TaskReducer } from './tasks/reducer/task.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { CounterFun } from './home/reducer/home.reducer';
     IonicModule.forRoot(),
     AppRoutingModule,
     StoreModule.forRoot({
-     counter: CounterFun,
+      counter: CounterReducer,
+      tasks: TaskReducer,
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

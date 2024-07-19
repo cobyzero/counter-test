@@ -1,0 +1,11 @@
+<ion-list>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks$ | async">
+      {{ task.Title }}
+    </ion-item>
+  </ion-list>
+</ion-list>
+
+<ion-button (click)="addTask()" shape="round">
+  Add Task
+</ion-button>
