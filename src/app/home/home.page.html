@@ -1,17 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Counter
+      Time
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="ion-text-center">
-    <h1>Currents {{ count$ | async }}</h1>
-    <ion-button (click)="increment()">+</ion-button>
-    <ion-button (click)="decrement()">-</ion-button>
-    <ion-button (click)="reset()">Reset</ion-button>
-    
+    <h1>Currents Time {{ sync$ | async }}</h1>
+    <ion-button (click)="sync()">Sync Time</ion-button>
+
   </div>
 </ion-content>

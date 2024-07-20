@@ -1,11 +1,11 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { CounterType, Decrement, Increment, Reset } from './home.action';
+import { createReducer, on } from '@ngrx/store';
+import { SaveAction } from './home.action';
 
-export const initialState = 0;
+export const initialState: number = 0;
 
-export const CounterReducer = createReducer(
+export const SyncReducer = createReducer(
   initialState,
-  on(Increment, (state) => state + 1),
-  on(Decrement, (state) => state - 1),
-  on(Reset, (state) => 0)
+  on(SaveAction, (_, action) => {
+    return action.time;
+  })
 );

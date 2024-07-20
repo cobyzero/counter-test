@@ -7,8 +7,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { CounterReducer } from './home/reducer/home.reducer';
 import { TaskReducer } from './tasks/reducer/task.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { HomeEffect } from './home/reducer/home.effect';
+import { SyncReducer } from './home/reducer/home.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +19,10 @@ import { TaskReducer } from './tasks/reducer/task.reducer';
     IonicModule.forRoot(),
     AppRoutingModule,
     StoreModule.forRoot({
-      counter: CounterReducer,
       tasks: TaskReducer,
+      sync: SyncReducer,
     }),
+    EffectsModule.forRoot([HomeEffect]),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

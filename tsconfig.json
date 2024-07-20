@@ -1,33 +1,49 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "resolveJsonModule":true,
+    "useDefineForClassFields": false,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
+    "emitDecoratorMetadata": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
     "lib": [
-      "es2018", 
+      "es2019", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "*": ["./*", "./src/*", "./src/app/*"],
+      "app-constants": ["src/app/app-constants"],
+      "react-native-sqlite-storage": [
+        "node_modules/react-native-sqlite-storage/index.js"
+      ]
+    },
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "fullTemplateTypeCheck": true,
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules/**",
+    "node_modules/@ngrx/",
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "vscode": {
+    "rewriteTsconfig": false
   }
 }

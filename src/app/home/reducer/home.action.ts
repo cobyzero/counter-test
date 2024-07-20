@@ -1,12 +1,14 @@
-import { Action, createAction } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-export enum CounterType {
-  Increment = '[Home Component] Increment',
-  Decrement = '[Home Component] Decrement',
-
-  Reset = '[Home Component] Reset',
+export enum SyncType {
+  Sync = '[Home Component] Sync',
+  Save = '[Home Component] Save',
 }
 
-export const Increment = createAction(CounterType.Increment);
-export const Decrement = createAction(CounterType.Decrement);
-export const Reset = createAction(CounterType.Reset);
+export const SyncAction = createAction(SyncType.Sync, (time: number) => ({
+  time,
+}));
+
+export const SaveAction = createAction(SyncType.Save, (time: number) => ({
+  time,
+}));
